@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D3BE06D2AF0045D0000B369 /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D3BE0692AF0045D0000B369 /* SFProDisplay-Medium.ttf */; };
+		8D3BE06E2AF0045D0000B369 /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D3BE06A2AF0045D0000B369 /* SFProDisplay-Semibold.ttf */; };
+		8D3BE06F2AF0045D0000B369 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D3BE06B2AF0045D0000B369 /* SFProDisplay-Regular.ttf */; };
+		8D3BE0702AF0045D0000B369 /* SFProDisplay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D3BE06C2AF0045D0000B369 /* SFProDisplay.ttf */; };
 		8D5B745F2AEFF48800172B56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B745E2AEFF48800172B56 /* AppDelegate.swift */; };
 		8D5B74612AEFF48800172B56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B74602AEFF48800172B56 /* SceneDelegate.swift */; };
 		8D5B74632AEFF48800172B56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B74622AEFF48800172B56 /* ViewController.swift */; };
 		8D5B74662AEFF48800172B56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B74642AEFF48800172B56 /* Main.storyboard */; };
 		8D5B74682AEFF48900172B56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B74672AEFF48900172B56 /* Assets.xcassets */; };
 		8D5B746B2AEFF48900172B56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B74692AEFF48900172B56 /* LaunchScreen.storyboard */; };
+		8D9F40552AF3E58300F351CA /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F40542AF3E58300F351CA /* FavoriteTableViewController.swift */; };
+		8D9F40572AF3E7FE00F351CA /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F40562AF3E7FE00F351CA /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D3BE0692AF0045D0000B369 /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
+		8D3BE06A2AF0045D0000B369 /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
+		8D3BE06B2AF0045D0000B369 /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		8D3BE06C2AF0045D0000B369 /* SFProDisplay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SFProDisplay.ttf; path = Ozinshe/SFProDisplay.ttf; sourceTree = SOURCE_ROOT; };
 		8D5B745B2AEFF48800172B56 /* Ozinshe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ozinshe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B745E2AEFF48800172B56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D5B74602AEFF48800172B56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +34,8 @@
 		8D5B74672AEFF48900172B56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D5B746A2AEFF48900172B56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D5B746C2AEFF48900172B56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D9F40542AF3E58300F351CA /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
+		8D9F40562AF3E7FE00F351CA /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +49,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D3BE0682AF0044A0000B369 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8D3BE06C2AF0045D0000B369 /* SFProDisplay.ttf */,
+				8D3BE0692AF0045D0000B369 /* SFProDisplay-Medium.ttf */,
+				8D3BE06B2AF0045D0000B369 /* SFProDisplay-Regular.ttf */,
+				8D3BE06A2AF0045D0000B369 /* SFProDisplay-Semibold.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		8D5B74522AEFF48800172B56 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +79,26 @@
 		8D5B745D2AEFF48800172B56 /* Ozinshe */ = {
 			isa = PBXGroup;
 			children = (
+				8D9F40532AF3E4DC00F351CA /* Controllers */,
+				8D3BE0682AF0044A0000B369 /* Fonts */,
 				8D5B745E2AEFF48800172B56 /* AppDelegate.swift */,
 				8D5B74602AEFF48800172B56 /* SceneDelegate.swift */,
-				8D5B74622AEFF48800172B56 /* ViewController.swift */,
 				8D5B74642AEFF48800172B56 /* Main.storyboard */,
 				8D5B74672AEFF48900172B56 /* Assets.xcassets */,
 				8D5B74692AEFF48900172B56 /* LaunchScreen.storyboard */,
 				8D5B746C2AEFF48900172B56 /* Info.plist */,
 			);
 			path = Ozinshe;
+			sourceTree = "<group>";
+		};
+		8D9F40532AF3E4DC00F351CA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B74622AEFF48800172B56 /* ViewController.swift */,
+				8D9F40562AF3E7FE00F351CA /* MovieTableViewCell.swift */,
+				8D9F40542AF3E58300F351CA /* FavoriteTableViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +160,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B746B2AEFF48900172B56 /* LaunchScreen.storyboard in Resources */,
+				8D3BE06D2AF0045D0000B369 /* SFProDisplay-Medium.ttf in Resources */,
 				8D5B74682AEFF48900172B56 /* Assets.xcassets in Resources */,
+				8D3BE06F2AF0045D0000B369 /* SFProDisplay-Regular.ttf in Resources */,
+				8D3BE0702AF0045D0000B369 /* SFProDisplay.ttf in Resources */,
+				8D3BE06E2AF0045D0000B369 /* SFProDisplay-Semibold.ttf in Resources */,
 				8D5B74662AEFF48800172B56 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,7 +176,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D9F40572AF3E7FE00F351CA /* MovieTableViewCell.swift in Sources */,
 				8D5B74632AEFF48800172B56 /* ViewController.swift in Sources */,
+				8D9F40552AF3E58300F351CA /* FavoriteTableViewController.swift in Sources */,
 				8D5B745F2AEFF48800172B56 /* AppDelegate.swift in Sources */,
 				8D5B74612AEFF48800172B56 /* SceneDelegate.swift in Sources */,
 			);
