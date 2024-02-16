@@ -5,3 +5,9 @@
   Created by Alina Floccus on 09.11.2023.
   
 */
+"MY_PROFILE" = "My profile";
+"LANGUAGE" = "Language";
+"NOTIFICATION" = "Notification";
+"PERSONAL DATA" = "Personal data";
+"CHANGE PASSWORD" = "Change password";
+"CONNECTION_ERROR" = "Connection error";

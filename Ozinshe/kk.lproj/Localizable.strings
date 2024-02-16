@@ -5,3 +5,9 @@
   Created by Alina Floccus on 09.11.2023.
   
 */
+"MY_PROFILE" = "Менің профилім";
+"LANGUAGE" = "Тіл";
+"NOTIFICATION" = "Хабарландырулар";
+"PERSONAL DATA" = "Жеке деректер";
+"CHANGE PASSWORD" = "Құпия сөзді өзгерту";
+"CONNECTION_ERROR" = "Ошибка соединения";

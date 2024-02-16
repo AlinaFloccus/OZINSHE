@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import SVProgressHUD
+import Alamofire
+import SwiftyJSON
 
 class SingInViewController: UIViewController {
     @IBOutlet weak var emailTextField: TexFieldWithPadding!
@@ -16,7 +19,7 @@ class SingInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         configureteViews()
@@ -34,6 +37,7 @@ class SingInViewController: UIViewController {
         passwordTextField.layer.borderColor = UIColor(red: 0.90, green: 0.92, blue: 0.94, alpha: 1.0).cgColor
         
         signinButton.layer.cornerRadius = 12.0
+       
     }
     
     func hideKeyboardWhenTappedAround() {
@@ -45,17 +49,70 @@ class SingInViewController: UIViewController {
         view.endEditing(true)
     }
     
+    // при работе с инпутом
     @IBAction func textFieldEditingDidBegin(_ sender: TexFieldWithPadding) {
         sender.layer.borderColor = UIColor(red: 0.59, green: 0.33, blue: 0.94, alpha: 1.0).cgColor
     }
     
+    // когда убрали наведение с инпута
     @IBAction func textFieldEditingDidEnd(_ sender: TexFieldWithPadding) {
         sender.layer.borderColor = UIColor(red: 0.90, green: 0.92, blue: 0.94, alpha: 1.0).cgColor
     }
     
+    // показать пароль
     @IBAction func showPassword(_ sender: Any) {
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
     }
+    
+    
+    @IBAction func singin(_ sender: Any) {
+        let email = emailTextField.text!
+        let password = passwordTextField.text!
+        
+        SVProgressHUD.show()
+        
+        let parameters = ["email": email,
+                          "password": password]
+        AF.request(Urls.SIGN_IN_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseData { response in
+            
+            SVProgressHUD.dismiss()
+            var resultString = ""
+            // чтобы выводить ошибки от сервера. resultString - просто переменная, в которую прелетает responsebody
+            if let data = response.data {
+                resultString = String(data: data, encoding: .utf8)!
+                print(resultString)
+            }
+            
+            if response.response?.statusCode == 200 {
+                let json = JSON(response.data!)
+                print("JSON: \(json)")
+                
+                // если код 200, мы проверяем дал ли сервер accessToken
+                if let token = json["accessToken"].string {
+                    Storage.sharedInstance.accessToken = token
+                    UserDefaults.standard.set(token, forKey: "accessToken")
+                    self.startApp()
+                } else {
+                    SVProgressHUD.showError(withStatus: "CONNECTION_ERROR".localized())
+                }
+            } else {
+                // формируем текст для ошибки
+                var ErrorString = "CONNECTION_ERROR".localized()
+                if let sCode = response.response?.statusCode {
+                    ErrorString = ErrorString + " \(sCode)"
+                }
+                ErrorString = ErrorString + " \(resultString)"
+                SVProgressHUD.showError(withStatus: "\(ErrorString)")
+            }
+        }
+    }
+    
+    func startApp() {
+        let tabViewController = self.storyboard?.instantiateViewController(identifier: "TabBarController")
+        tabViewController?.modalPresentationStyle = .fullScreen
+        self.present(tabViewController!, animated: true, completion: nil)
+    }
+}
     
     /*
     // MARK: - Navigation
@@ -67,4 +124,4 @@ class SingInViewController: UIViewController {
     }
     */
 
-}
+

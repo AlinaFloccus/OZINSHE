@@ -16,7 +16,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+               
+   //     guard let _ = (scene as? UIWindowScene) else { return }
+        
+        // так как пред. "guard let" убрали
+        if let windowScene = scene as? UIWindowScene {
+            // если уже сохранили accessToken, чтобы не кинуло на авторизацию
+            if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+                // если приложение было уже до этого запущенно, то токен сохранится в storage
+                Storage.sharedInstance.accessToken = accessToken
+                
+                // стандартный код получения window
+                self.window = UIWindow(windowScene: windowScene)
+                
+                 // стандартный код получения story board
+                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                
+                // если уже была авторизация, то заменяем на экран TabBarViewController
+                let viewController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                self.window?.rootViewController = viewController
+                self.window?.makeKeyAndVisible()
+            }
+        }
+        
+        // для "крутилки" прогрессбара?
+        (UIApplication.shared.delegate as? AppDelegate)?.self.window = window
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
