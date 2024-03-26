@@ -18,6 +18,8 @@ class ProfileViewController: UIViewController, LanguageDelegate {
     
     @IBOutlet weak var passwordButton: UIButton!
     @IBOutlet weak var notificationButton: UIButton!
+ 
+    @IBOutlet weak var emailLabel: UILabel!
     
     
 //язык
@@ -26,6 +28,9 @@ class ProfileViewController: UIViewController, LanguageDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // в строчку с email передать наш email
+        emailLabel.text = Storage.sharedInstance.email
 
         // Do any additional setup after loading the view.
     }

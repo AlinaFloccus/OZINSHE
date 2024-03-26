@@ -68,7 +68,7 @@ class LogautViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func logout(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "accessToken")
         
-        let rootVC = self.storyboard?.instantiateViewController(withIdentifier: "SingInViewController") as! UINavigationController
+        let rootVC = self.storyboard?.instantiateViewController(withIdentifier: "OnboardingViewController") as! UINavigationController
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = rootVC

@@ -11,6 +11,7 @@ import UIKit
 class Storage {
     // хранит в себе статичный токен
     public var accessToken: String = ""
+    public var email: String = ""
     
     // и sharedInstance самого себя. чтобы обращаясь с любого из экранов к токену, он был всегда один (когда мы создаем класс в ед. экземпляря, нода использовать sharedInstance
     // static, чтобы не было рекурссии

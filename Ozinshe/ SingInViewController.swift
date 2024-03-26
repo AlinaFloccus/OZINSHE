@@ -69,6 +69,11 @@ class SingInViewController: UIViewController {
         let email = emailTextField.text!
         let password = passwordTextField.text!
         
+        // не давать нажать на кнопку, пока не заполненны поля
+        if email.isEmpty || password.isEmpty {
+            return
+        }
+        
         SVProgressHUD.show()
         
         let parameters = ["email": email,
@@ -89,8 +94,13 @@ class SingInViewController: UIViewController {
                 
                 // если код 200, мы проверяем дал ли сервер accessToken
                 if let token = json["accessToken"].string {
+                    
+                    let email = json["email"].stringValue // если ничего не прийдет - будет пустая строка (stringValue)
+                    
                     Storage.sharedInstance.accessToken = token
+                    Storage.sharedInstance.email = email
                     UserDefaults.standard.set(token, forKey: "accessToken")
+                    UserDefaults.standard.set(email, forKey: "email")
                     self.startApp()
                 } else {
                     SVProgressHUD.showError(withStatus: "CONNECTION_ERROR".localized())

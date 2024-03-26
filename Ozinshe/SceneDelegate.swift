@@ -21,10 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // так как пред. "guard let" убрали
         if let windowScene = scene as? UIWindowScene {
+            
             // если уже сохранили accessToken, чтобы не кинуло на авторизацию
             if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
                 // если приложение было уже до этого запущенно, то токен сохранится в storage
                 Storage.sharedInstance.accessToken = accessToken
+                
+                //для сохранения email
+                Storage.sharedInstance.email = UserDefaults.standard.string(forKey: "email") ?? " "
                 
                 // стандартный код получения window
                 self.window = UIWindow(windowScene: windowScene)
