@@ -15,6 +15,8 @@
 		8D1E55BC2BAC8322009D5E00 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E55BB2BAC8322009D5E00 /* HistoryTableViewCell.swift */; };
 		8D1E55BE2BAC833C009D5E00 /* GenreAgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E55BD2BAC833C009D5E00 /* GenreAgeTableViewCell.swift */; };
 		8D4988E42BB2CB6D00FEDCB2 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4988E32BB2CB6D00FEDCB2 /* OnboardingViewController.swift */; };
+		8D5A021B2BB9AC2C003AC435 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A021A2BB9AC2C003AC435 /* GradientView.swift */; };
+		8D5A021E2BC026A7003AC435 /* MovieInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A021D2BC026A7003AC435 /* MovieInfoViewController.swift */; };
 		8D5B745F2AEFF48800172B56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B745E2AEFF48800172B56 /* AppDelegate.swift */; };
 		8D5B74612AEFF48800172B56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B74602AEFF48800172B56 /* SceneDelegate.swift */; };
 		8D5B74662AEFF48800172B56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B74642AEFF48800172B56 /* Main.storyboard */; };
@@ -60,6 +62,8 @@
 		8D1E55BB2BAC8322009D5E00 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		8D1E55BD2BAC833C009D5E00 /* GenreAgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreAgeTableViewCell.swift; sourceTree = "<group>"; };
 		8D4988E32BB2CB6D00FEDCB2 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		8D5A021A2BB9AC2C003AC435 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		8D5A021D2BC026A7003AC435 /* MovieInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoViewController.swift; sourceTree = "<group>"; };
 		8D5B745B2AEFF48800172B56 /* Ozinshe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ozinshe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B745E2AEFF48800172B56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D5B74602AEFF48800172B56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +149,14 @@
 			path = Ozinshe;
 			sourceTree = SOURCE_ROOT;
 		};
+		8D5A021C2BC02634003AC435 /* MovieInfo */ = {
+			isa = PBXGroup;
+			children = (
+				8D5A021D2BC026A7003AC435 /* MovieInfoViewController.swift */,
+			);
+			name = MovieInfo;
+			sourceTree = "<group>";
+		};
 		8D5B74522AEFF48800172B56 = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				8D8C087B2B1634910014F5C5 /* TexFieldWithPadding.swift */,
+				8D5A021A2BB9AC2C003AC435 /* GradientView.swift */,
 			);
 			name = Extenstions;
 			sourceTree = "<group>";
@@ -260,6 +273,7 @@
 				8D4988E32BB2CB6D00FEDCB2 /* OnboardingViewController.swift */,
 				8D6E5D1E2B309BD000BA0508 /*  SingInViewController.swift */,
 				8D5C05772B35D56E003B2925 /* TabBarController.swift */,
+				8D5A021C2BC02634003AC435 /* MovieInfo */,
 				8D8B8FD72B821C42003842A9 /* MainPage */,
 				8D02A2A52B78F8EC003AB8EA /* MovieCell */,
 				8D6E5D212B336BD100BA0508 /* Favorites */,
@@ -403,6 +417,7 @@
 				8D1E55BE2BAC833C009D5E00 /* GenreAgeTableViewCell.swift in Sources */,
 				8D6E5D1F2B309BD000BA0508 /*  SingInViewController.swift in Sources */,
 				8D8C08742B11EE7E0014F5C5 /* PersonalDataViewController.swift in Sources */,
+				8D5A021E2BC026A7003AC435 /* MovieInfoViewController.swift in Sources */,
 				8D1E55BC2BAC8322009D5E00 /* HistoryTableViewCell.swift in Sources */,
 				8D5C05822B38337A003B2925 /* Category.swift in Sources */,
 				8D1E55B62BAC7D88009D5E00 /* BannerMovie.swift in Sources */,
@@ -420,6 +435,7 @@
 				8D745B232B75125100D15E0F /* SearchViewController.swift in Sources */,
 				8D5C05802B36DA58003B2925 /* Genre.swift in Sources */,
 				8D5C057C2B36D9E3003B2925 /* Screenshot.swift in Sources */,
+				8D5A021B2BB9AC2C003AC435 /* GradientView.swift in Sources */,
 				8D5B74612AEFF48800172B56 /* SceneDelegate.swift in Sources */,
 				8D1E55BA2BAC82F4009D5E00 /* BannerCollectionViewCell.swift in Sources */,
 				8D02A2A22B78F4DD003AB8EA /* CategoryTableViewController.swift in Sources */,
