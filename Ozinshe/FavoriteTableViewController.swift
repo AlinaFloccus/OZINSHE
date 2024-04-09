@@ -22,8 +22,6 @@ class FavoriteTableViewController: UITableViewController {
         let MovieCellnib = UINib(nibName: "MovieCell",bundle: nil)
         tableView.register(MovieCellnib, forCellReuseIdentifier: "MovieCell")
         
-        downloadFavorites()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,6 +55,7 @@ class FavoriteTableViewController: UITableViewController {
                 // говорим: то что пришло с бэка - это массив из объектов
                 if let array = json.array {
                     // перебераем массив и конвертируем в swift модель
+                    self.favorites.removeAll() // если не будет этой части, то он будет сверху добавлять тоже самое
                     for item in array {
                         let movie = Movie(json: item)
                         self.favorites.append(movie)
@@ -99,11 +98,16 @@ class FavoriteTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 153
+        return 153.0
     }
     
 
-// !!!Дописать!!
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movieinfoVC = storyboard?.instantiateViewController(withIdentifier: "MovieInfoViewController") as! MovieInfoViewController
+        
+        movieinfoVC.movie = favorites[indexPath.row]
+        navigationController?.show(movieinfoVC, sender: self)
+    }
     
     // MARK: - Navigation
     

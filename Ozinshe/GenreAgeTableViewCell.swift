@@ -8,6 +8,10 @@
 import UIKit
 import SDWebImage
 
+protocol GenreAgeProtocol {
+    func didSelectGenreAge(_ genreAge: CategoryAge)
+}
+
 class GenreAgeTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -15,6 +19,7 @@ class GenreAgeTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
     @IBOutlet weak var collectionView: UICollectionView!
     
     var mainMovie = MainMovies()
+    var delegate: GenreAgeProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -69,5 +74,12 @@ class GenreAgeTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+    
+        if mainMovie.cellType == .ageCategory {
+            delegate?.didSelectGenreAge(mainMovie.categoryAges[indexPath.row])
+        } else {
+            // TODO: delegate?.didSelectGenre - дописать в протоколе, а потом тут
+        }
+        
     }
 }

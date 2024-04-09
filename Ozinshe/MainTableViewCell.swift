@@ -8,6 +8,10 @@
 import UIKit
 import SDWebImage
 
+protocol MovieProtocol {
+    func movieDidSelect(movie: Movie)
+}
+
 // класс из интернета для настройки отображения элементов в collectionView
 class TopAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
@@ -40,7 +44,7 @@ class MainTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
     @IBOutlet weak var categoryNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
+    var delegate : MovieProtocol?
     var mainMovie = MainMovies()
     
     override func awakeFromNib() {
@@ -107,6 +111,7 @@ class MainTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
     // выбор фильма
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        delegate?.movieDidSelect(movie: mainMovie.movies[indexPath.row])
     }
 
 }

@@ -10,10 +10,17 @@ import SVProgressHUD
 import SwiftyJSON
 import Alamofire
 
-class MainPageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainPageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieProtocol, GenreAgeProtocol {
+    func didSelectGenreAge(_ genreAge: CategoryAge) {
+        // TODO: переписать, чтобы открывал страницу с категорией
+        let movieinfoVC = storyboard?.instantiateViewController(withIdentifier: "CategoryTableViewController") as! CategoryTableViewController
+        
+        
+        
+        navigationController?.show(movieinfoVC, sender: self)
+    }
+    
  
-    
-    
     @IBOutlet weak var tableView: UITableView!
     
     var mainMovies:[MainMovies] = []
@@ -308,7 +315,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
             let cell = tableView.dequeueReusableCell(withIdentifier: "mainBannerCell", for: indexPath) as! MainBannerTableViewCell
             
             cell.setData(mainMovie: mainMovies[indexPath.row])
-            //cell.delegate = self
+            cell.delegate = self // ячейка будет обращаться к MainPageViewController и использовать  Protocol "Movie"
             
             return cell
         }
@@ -318,7 +325,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
             let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! HistoryTableViewCell
 
             cell.setData(mainMovie: mainMovies[indexPath.row])
-           // cell.delegate = self
+           cell.delegate = self
 
             return cell
         }
@@ -328,7 +335,8 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
             let cell = tableView.dequeueReusableCell(withIdentifier: "genreAgeCell", for: indexPath) as! GenreAgeTableViewCell
 
             cell.setData(mainMovie: mainMovies[indexPath.row])
-
+            cell.delegate = self
+            
             return cell
         }
         
@@ -336,7 +344,7 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! MainTableViewCell
         
         cell.setData(mainMovie: mainMovies[indexPath.row]) // setData - передаем конкретный эллемент от mainMovie
-        //cell.delegate = self
+        cell.delegate = self
         
         return cell
     }
@@ -362,13 +370,21 @@ class MainPageViewController: UIViewController, UITableViewDelegate, UITableView
         if mainMovies[indexPath.row].cellType != .mainMovie { // не понимаю ;(
             return
         }
-        
         // не понимаю ;(
         let categoryTableViewController = storyboard?.instantiateViewController(withIdentifier: "CategoryTableViewController") as! CategoryTableViewController
         categoryTableViewController.categoryID = mainMovies[indexPath.row].categoryId
         categoryTableViewController.categoryName = mainMovies[indexPath.row].categoryName
         
         navigationController?.show(categoryTableViewController, sender: self)
+    }
+    
+    // MARK: - MovieProtocol
+    func movieDidSelect(movie: Movie) {
+        let movieinfoVC = storyboard?.instantiateViewController(withIdentifier: "MovieInfoViewController") as! MovieInfoViewController
+        
+        movieinfoVC.movie = movie
+        
+        navigationController?.show(movieinfoVC, sender: self)
     }
 
 }

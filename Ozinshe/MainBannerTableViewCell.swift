@@ -13,12 +13,13 @@ class MainBannerTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
     
     var mainMovie = MainMovies()
     
+    var delegate : MovieProtocol?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
         bannerCollectionView.delegate = self
-        
         bannerCollectionView.dataSource = self
         
         let layout = TopAlignedCollectionViewFlowLayout() // распределение элементов по верхнему краю
@@ -59,6 +60,7 @@ class MainBannerTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColl
     // выбор фильма
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        delegate?.movieDidSelect(movie: mainMovie.bannerMovie[indexPath.row].movie)
     }
     
 }

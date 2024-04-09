@@ -15,6 +15,8 @@ class HistoryTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
 
     var mainMovie = MainMovies()
     
+    var delegate : MovieProtocol?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -68,5 +70,6 @@ class HistoryTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     // выбор фильма
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        delegate?.movieDidSelect(movie: mainMovie.movies[indexPath.row])
     }
 }

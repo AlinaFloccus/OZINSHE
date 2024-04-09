@@ -11,6 +11,7 @@ target 'Ozinshe' do
   pod 'SVProgressHUD'
   pod 'SDWebImage'
   pod 'Localize-Swift', '~> 3.2'
+  pod 'YouTubePlayer'
 
 end
 

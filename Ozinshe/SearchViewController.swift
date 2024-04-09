@@ -290,16 +290,12 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         return 153.0
     }
     
-    // !!!Дописать!!
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // нажатие на ячейку
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movieinfoVC = storyboard?.instantiateViewController(withIdentifier: "MovieInfoViewController") as! MovieInfoViewController
+        
+        movieinfoVC.movie  = movies[indexPath.row]
+        
+        navigationController?.show(movieinfoVC, sender: self)
     }
-    */
-
 }
