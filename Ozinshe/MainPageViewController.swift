@@ -11,14 +11,26 @@ import SwiftyJSON
 import Alamofire
 
 class MainPageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieProtocol, GenreAgeProtocol {
-    func didSelectGenreAge(_ genreAge: CategoryAge) {
-        // TODO: переписать, чтобы открывал страницу с категорией
-        let movieinfoVC = storyboard?.instantiateViewController(withIdentifier: "CategoryTableViewController") as! CategoryTableViewController
+    // передать категорию жанров
+    func didSelectGenre(_ genre: Genre) {
+        let categoryVC = storyboard?.instantiateViewController(withIdentifier: "CategoryTableViewController") as! CategoryTableViewController
         
+     //   genreID - переменная в CategoryTableViewController, genre - то что принимаем в функции, .id переменная в классе Genre
+        categoryVC.genreID = genre.id
+        categoryVC.categoryName = genre.name
         
-        
-        navigationController?.show(movieinfoVC, sender: self)
+        navigationController?.show(categoryVC, sender: self)
     }
+    // передать категорию возрастов
+    func didSelectAge(_ age: CategoryAge) {
+        let categoryVC = storyboard?.instantiateViewController(withIdentifier: "CategoryTableViewController") as! CategoryTableViewController
+        
+        categoryVC.categoryAgeID = age.id
+        categoryVC.categoryName = age.name
+        
+        navigationController?.show(categoryVC, sender: self)
+    }
+    
     
  
     @IBOutlet weak var tableView: UITableView!

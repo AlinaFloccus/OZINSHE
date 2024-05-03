@@ -13,6 +13,7 @@ import SwiftyJSON
 class SingInViewController: UIViewController {
     @IBOutlet weak var emailTextField: TexFieldWithPadding!
     @IBOutlet weak var passwordTextField: TexFieldWithPadding!
+    
     @IBOutlet weak var signinButton: UIButton!
     
     
@@ -62,6 +63,11 @@ class SingInViewController: UIViewController {
     // показать пароль
     @IBAction func showPassword(_ sender: Any) {
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+    }
+    
+    @IBAction func toSingup(_ sender: Any) {
+        let singUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController")
+        navigationController?.show(singUpVC!, sender: self)
     }
     
     

@@ -16,7 +16,8 @@ class PasswordViewController: UIViewController {
     @IBOutlet weak var repeatPasswordTextField: TexFieldWithPadding!
     @IBOutlet weak var chandeButton: UIButton!
     
-    
+    @IBOutlet weak var passwordTextButton: UIButton!
+    @IBOutlet weak var repeatPasswordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,8 +63,12 @@ class PasswordViewController: UIViewController {
     }
     
     // показать пароль
-    @IBAction func showPassword(_ sender: Any) {
-        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+    @IBAction func showPassword(_ sender: UIButton) {
+        if sender == passwordTextButton {
+            passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+        } else if sender == repeatPasswordButton {
+            repeatPasswordTextField.isSecureTextEntry = !repeatPasswordTextField.isSecureTextEntry
+        }
     }
     
     
@@ -73,6 +78,12 @@ class PasswordViewController: UIViewController {
         ]
         
         let password = passwordTextField.text!
+        let repeatPassword = repeatPasswordTextField.text!
+        
+        // не давать нажать на кнопку, если не совпадают пароли
+        if password != repeatPassword {
+            return
+        }
         
         let parametrs = [
             "password": password

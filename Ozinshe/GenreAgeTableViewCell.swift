@@ -9,7 +9,8 @@ import UIKit
 import SDWebImage
 
 protocol GenreAgeProtocol {
-    func didSelectGenreAge(_ genreAge: CategoryAge)
+    func didSelectGenre(_ genre: Genre)
+    func didSelectAge(_ age: CategoryAge)
 }
 
 class GenreAgeTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -76,9 +77,9 @@ class GenreAgeTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
         collectionView.deselectItem(at: indexPath, animated: true)
     
         if mainMovie.cellType == .ageCategory {
-            delegate?.didSelectGenreAge(mainMovie.categoryAges[indexPath.row])
+            delegate?.didSelectAge(mainMovie.categoryAges[indexPath.row])
         } else {
-            // TODO: delegate?.didSelectGenre - дописать в протоколе, а потом тут
+           delegate?.didSelectGenre(mainMovie.genres[indexPath.row])
         }
         
     }

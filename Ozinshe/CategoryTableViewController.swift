@@ -12,7 +12,11 @@ import SwiftyJSON
 
 class CategoryTableViewController: UITableViewController {
     
+    // переменные, которые будет использовать для имплементации API, чтобы в фильтре использовать id категории (по названию / по жанру / по возрасту
     var categoryID = 0
+    var genreID = 0
+    var categoryAgeID = 0
+    
     var categoryName = "" // для отображения в шапке название категории
     
     var movies:[Movie] = []
@@ -37,7 +41,8 @@ class CategoryTableViewController: UITableViewController {
             "Authorization": "Bearer \(Storage.sharedInstance.accessToken)"
         ]
         
-        let parameters = ["categoryId": categoryID]
+        // то что в " " передавать как в API
+        let parameters = ["categoryId": categoryID, "genreId": genreID, "categoryAgeId": categoryAgeID]
         
         AF.request(Urls.MOVIES_BY_CATEGORY_URL, method: .get, parameters: parameters, headers: headers).responseData { response in
             
@@ -103,7 +108,7 @@ class CategoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movieinfoVC = storyboard?.instantiateViewController(withIdentifier: "MovieInfoViewController") as! MovieInfoViewController
         
-        movieinfoVC.movie  = movies[indexPath.row]
+        movieinfoVC.movie = movies[indexPath.row]
         
         navigationController?.show(movieinfoVC, sender: self)
     }

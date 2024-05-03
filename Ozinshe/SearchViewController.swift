@@ -53,7 +53,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     var movies:[Movie] = []
     
-    var request: Request? //?-что по-умолчанию ничеге нет. переменная для того чтобы хранить в нем запрос, который сейчас происходит, а при новом запросе завершать первый
+    var request: Request? //?-что по-умолчанию ничего нет. переменная для того, чтобы хранить в нем запрос, который сейчас происходит, а при новом запросе завершать первый
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +88,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         tableView.delegate = self
         tableView.dataSource = self
         
+        // для использования компонента "MovieCell"
         let MovieCellnib = UINib(nibName: "MovieCell",bundle: nil)
         tableView.register(MovieCellnib, forCellReuseIdentifier: "MovieCell")
         
@@ -294,7 +295,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movieinfoVC = storyboard?.instantiateViewController(withIdentifier: "MovieInfoViewController") as! MovieInfoViewController
         
-        movieinfoVC.movie  = movies[indexPath.row]
+        movieinfoVC.movie = movies[indexPath.row]
         
         navigationController?.show(movieinfoVC, sender: self)
     }

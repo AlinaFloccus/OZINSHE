@@ -17,6 +17,8 @@
 		8D2BBA5B2BC569A7007DCD59 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2BBA5A2BC569A7007DCD59 /* Label.swift */; };
 		8D2BBA5D2BC56D13007DCD59 /* MoviePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2BBA5C2BC56D13007DCD59 /* MoviePlayerViewController.swift */; };
 		8D2BBA5F2BC56DE1007DCD59 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2BBA5E2BC56DE1007DCD59 /* Season.swift */; };
+		8D2BBA612BCEBDAD007DCD59 /* SeasonsSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2BBA602BCEBDAD007DCD59 /* SeasonsSeriesViewController.swift */; };
+		8D2BBA632BE123C6007DCD59 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2BBA622BE123C6007DCD59 /* SignUpViewController.swift */; };
 		8D4988E42BB2CB6D00FEDCB2 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4988E32BB2CB6D00FEDCB2 /* OnboardingViewController.swift */; };
 		8D5A021B2BB9AC2C003AC435 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A021A2BB9AC2C003AC435 /* GradientView.swift */; };
 		8D5A021E2BC026A7003AC435 /* MovieInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A021D2BC026A7003AC435 /* MovieInfoViewController.swift */; };
@@ -67,6 +69,8 @@
 		8D2BBA5A2BC569A7007DCD59 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		8D2BBA5C2BC56D13007DCD59 /* MoviePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePlayerViewController.swift; sourceTree = "<group>"; };
 		8D2BBA5E2BC56DE1007DCD59 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
+		8D2BBA602BCEBDAD007DCD59 /* SeasonsSeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsSeriesViewController.swift; sourceTree = "<group>"; };
+		8D2BBA622BE123C6007DCD59 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8D4988E32BB2CB6D00FEDCB2 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8D5A021A2BB9AC2C003AC435 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		8D5A021D2BC026A7003AC435 /* MovieInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 			children = (
 				8D5A021D2BC026A7003AC435 /* MovieInfoViewController.swift */,
 				8D2BBA5C2BC56D13007DCD59 /* MoviePlayerViewController.swift */,
+				8D2BBA602BCEBDAD007DCD59 /* SeasonsSeriesViewController.swift */,
 			);
 			name = MovieInfo;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 			children = (
 				8D4988E32BB2CB6D00FEDCB2 /* OnboardingViewController.swift */,
 				8D6E5D1E2B309BD000BA0508 /*  SingInViewController.swift */,
+				8D2BBA622BE123C6007DCD59 /* SignUpViewController.swift */,
 				8D5C05772B35D56E003B2925 /* TabBarController.swift */,
 				8D5A021C2BC02634003AC435 /* MovieInfo */,
 				8D8B8FD72B821C42003842A9 /* MainPage */,
@@ -441,6 +447,7 @@
 				8D9F40572AF3E7FE00F351CA /* MovieTableViewCell.swift in Sources */,
 				8D9F40552AF3E58300F351CA /* FavoriteTableViewController.swift in Sources */,
 				8D5B745F2AEFF48800172B56 /* AppDelegate.swift in Sources */,
+				8D2BBA612BCEBDAD007DCD59 /* SeasonsSeriesViewController.swift in Sources */,
 				8DE27A402B8A1495000F6826 /* MainTableViewCell.swift in Sources */,
 				8D8C08512B00DD960014F5C5 /* LanguageViewController.swift in Sources */,
 				8D745B232B75125100D15E0F /* SearchViewController.swift in Sources */,
@@ -458,6 +465,7 @@
 				8D5C057A2B36D923003B2925 /* Movie.swift in Sources */,
 				8D5C057E2B36DA12003B2925 /* CategoryAge.swift in Sources */,
 				8D8B8FD62B8213A6003842A9 /* MainMovies.swift in Sources */,
+				8D2BBA632BE123C6007DCD59 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

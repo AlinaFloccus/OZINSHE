@@ -30,7 +30,7 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
         collectionView.dataSource = self
     }
     
-    // когда только ViewController открылся - скрываем navigationController "кнопочка назад "
+    // когда только ViewController открылся - скрываем navigationController "кнопочка назад"
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)

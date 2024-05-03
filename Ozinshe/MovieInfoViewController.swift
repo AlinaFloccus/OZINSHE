@@ -34,6 +34,17 @@ class MovieInfoViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBOutlet weak var screenshotCollectionView: UICollectionView!
     @IBOutlet weak var similarCollectionView: UICollectionView!
     
+    
+    @IBOutlet weak var directorLabelToFullDescriptonConstraint: NSLayoutConstraint! 
+    @IBOutlet weak var directorLabelToDescriptionLabelConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var directorLabel2ToFullDescriptonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var directorLabel2ToDescriptionLabelConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var screenshotLabelToSeasonsLabelConstraint: NSLayoutConstraint!    
+    @IBOutlet weak var screenshotLabelToViewConstraint: NSLayoutConstraint!
+    
+    
     var movie = Movie()
     
     var similarMovies:[Movie] = []
@@ -57,6 +68,13 @@ class MovieInfoViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func configureView() {
+        
+        if movie.favorite {
+            favoriteButton.setImage(UIImage(named: "FavoriteSelected"), for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage(named: "FavoriteButton"), for: .normal)
+        }
+        
         // содержимое экрана
         backgroundView.layer.cornerRadius = 32
         backgroundView.clipsToBounds = true // clipsToBounds не отображает элементы выходящие за его пределы
@@ -64,27 +82,29 @@ class MovieInfoViewController: UIViewController, UICollectionViewDelegate, UICol
         
         descriptionLabel.numberOfLines = 4
         
-        //не поняла ;(
-        screenshotCollectionView.dataSource = self
-        screenshotCollectionView.delegate = self
+        if descriptionLabel.maxNumberOfLines < 5 {
+            fullDescriptionButton.isHidden = true
+            directorLabelToFullDescriptonConstraint.priority = .defaultLow
+            directorLabelToDescriptionLabelConstraint.priority = .defaultHigh
+            directorLabel2ToFullDescriptonConstraint.priority = .defaultLow
+            directorLabel2ToDescriptionLabelConstraint.priority = .defaultHigh
+        }
         
         if movie.movieType == "MOVIE" {
             seasonsLabel.isHidden = true
             seasonsButton.isHidden = true
             arrowImageView.isHidden = true
+            screenshotLabelToSeasonsLabelConstraint.priority = .defaultLow
+            screenshotLabelToViewConstraint.priority = .defaultHigh
         } else {
             seasonsButton.setTitle("\(movie.seasonCount) сезон, \(movie.seriesCount) серия", for: .normal)
+            screenshotLabelToSeasonsLabelConstraint.priority = .defaultHigh
+            screenshotLabelToViewConstraint.priority = .defaultLow
         }
         
-        if descriptionLabel.maxNumberOfLines < 5 {
-            fullDescriptionButton.isHidden = true
-        }
-        
-        if movie.favorite {
-            favoriteButton.setImage(UIImage(named: "FavoriteSelected"), for: .normal)
-        } else {
-            favoriteButton.setImage(UIImage(named: "FavoriteButton"), for: .normal)
-        }
+        //не поняла ;(
+        screenshotCollectionView.dataSource = self
+        screenshotCollectionView.delegate = self
         
     }
     
@@ -101,7 +121,6 @@ class MovieInfoViewController: UIViewController, UICollectionViewDelegate, UICol
         descriptionLabel.text = movie.description
         
         directorLabel.text = movie.director
-        
         producerLabel.text = movie.producer
     }
     
@@ -150,6 +169,17 @@ class MovieInfoViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     @IBAction func playMovie(_ sender: Any) {
+        if movie.movieType == "MOVIE" {
+            let playerVC = storyboard?.instantiateViewController(withIdentifier: "MoviePlayerViewController") as! MoviePlayerViewController
+            
+            playerVC.video_link = movie.video_link
+            navigationController?.show(playerVC, sender: self)
+        } else {
+            let seasonsVC = storyboard?.instantiateViewController(withIdentifier: "SeasonsSeriesViewController") as! SeasonsSeriesViewController
+            
+            seasonsVC.movie = movie
+            navigationController?.show(seasonsVC, sender: self)
+        }
         
     }
     
@@ -217,6 +247,13 @@ class MovieInfoViewController: UIViewController, UICollectionViewDelegate, UICol
         }
     }
     
+    @IBAction func SeasonOpen(_ sender: Any) {
+        let seasonsVC = storyboard?.instantiateViewController(withIdentifier: "SeasonsSeriesViewController") as! SeasonsSeriesViewController
+        
+        seasonsVC.movie = movie
+        navigationController?.show(seasonsVC, sender: self)
+    }
+    
     
     // MARK: - collectionView
     
@@ -267,7 +304,7 @@ class MovieInfoViewController: UIViewController, UICollectionViewDelegate, UICol
         if collectionView == self.similarCollectionView {
             let movieinfoVC = storyboard?.instantiateViewController(withIdentifier: "MovieInfoViewController") as! MovieInfoViewController
             
-            movieinfoVC.movie  = similarMovies[indexPath.row]
+            movieinfoVC.movie = similarMovies[indexPath.row]
             
             navigationController?.show(movieinfoVC, sender: self)
         }

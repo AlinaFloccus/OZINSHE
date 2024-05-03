@@ -15,6 +15,7 @@ class FavoriteTableViewController: UITableViewController {
 //    var arrayFavorite = ["image1", "image2", "image3"]
     var favorites:[Movie] = []
 
+    // viewDidLoad - вызывается единожды
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +25,8 @@ class FavoriteTableViewController: UITableViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    // viewDidAppear заменили на viewWillAppear - при каждом появлении этого экрана - обновлять данные
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         downloadFavorites()
     }

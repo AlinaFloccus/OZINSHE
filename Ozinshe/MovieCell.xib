@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,7 +26,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Қызғалдақтар мекені " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lz9-Yi-u52">
                         <rect key="frame" x="112.00000000000001" y="24" width="159.33333333333337" height="17"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                        <color key="textColor" red="0.066666666669999999" green="0.094117647060000004" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <color key="textColor" name="Font"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020 • Телехикая • Мультфильм" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5o-2O-O3T">
@@ -51,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.97254901959999995" green="0.93333333330000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="Play"/>
                         <constraints>
                             <constraint firstItem="ZyL-tp-Oiu" firstAttribute="leading" secondItem="wyD-Na-gdk" secondAttribute="leading" constant="12" id="4NI-hr-x73"/>
                             <constraint firstItem="tnS-jG-G2Z" firstAttribute="top" secondItem="wyD-Na-gdk" secondAttribute="top" constant="4" id="Brx-4Z-bhs"/>
@@ -62,6 +63,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="Background"/>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="g5o-2O-O3T" secondAttribute="trailing" constant="24" id="0fo-tP-Gi1"/>
                     <constraint firstItem="g5o-2O-O3T" firstAttribute="leading" secondItem="7O4-hP-8R0" secondAttribute="trailing" constant="17" id="C4g-Z6-ihD"/>
@@ -86,5 +88,14 @@
     <resources>
         <image name="Play" width="16.333333969116211" height="16"/>
         <image name="image1" width="143" height="208"/>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Font">
+            <color red="0.067000001668930054" green="0.093999996781349182" blue="0.15299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Play">
+            <color red="0.97299998998641968" green="0.93300002813339233" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

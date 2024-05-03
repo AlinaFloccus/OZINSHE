@@ -15,6 +15,25 @@ class TabBarController: UITabBarController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        setTabImages()
+    }
+    
+    func setTabImages() {
+        let homeselectedimage = UIImage(named: "HomeActive")!.withRenderingMode(.alwaysOriginal)
+        
+        let searchselectedimage = UIImage(named: "SearchActive")!.withRenderingMode(.alwaysOriginal)
+        
+        let favoriteselectedimage = UIImage(named: "FavoritesActive")!.withRenderingMode(.alwaysOriginal)
+        
+        let profileselectedimage = UIImage(named: "ProfileActive")!.withRenderingMode(.alwaysOriginal)
+        
+        tabBar.items?[0].selectedImage = homeselectedimage
+        tabBar.items?[1].selectedImage = searchselectedimage
+        tabBar.items?[2].selectedImage = favoriteselectedimage
+        tabBar.items?[3].selectedImage = profileselectedimage
+    }
 
     /*
     // MARK: - Navigation
