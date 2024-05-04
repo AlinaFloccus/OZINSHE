@@ -12,6 +12,8 @@ class LogautViewController: UIViewController, UIGestureRecognizerDelegate {
    
     @IBOutlet weak var backgroundView: UIView!
     
+    @IBOutlet weak var LogautButton: UIButton!
+    
     var viewTranslation = CGPoint(x: 0, y: 0)
     
     
@@ -21,6 +23,7 @@ class LogautViewController: UIViewController, UIGestureRecognizerDelegate {
         backgroundView.layer.cornerRadius = 32
         backgroundView.clipsToBounds = true  // все что находится внутри view обрезается - чтобы не торчать за рамки
         backgroundView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // маска - применяется только на верхние края
+        LogautButton.layer.cornerRadius = 12.0
         
         // чтобы распознать, нажатание на экран
          let tap = UITapGestureRecognizer(target: self, action: #selector(dismissView))

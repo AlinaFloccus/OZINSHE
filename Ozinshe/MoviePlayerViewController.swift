@@ -18,6 +18,16 @@ class MoviePlayerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        player.playerVars = [
+                            "playsinline": "0",
+                            "controls": "1",
+                            "showinfo": "0",
+                            "rel": "0",
+                            "modestbranding": "1",
+                            "autohide": "1"
+                            ] as YouTubePlayerView.YouTubePlayerParameters
+        
         player.loadVideoID(video_link)
     }
     

@@ -17,6 +17,11 @@ class SingInViewController: UIViewController {
     @IBOutlet weak var signinButton: UIButton!
     
     
+    @IBOutlet weak var error: UILabel!
+    
+    
+    @IBOutlet weak var passwordToTextFieldConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passwordToErrorConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +43,8 @@ class SingInViewController: UIViewController {
         passwordTextField.layer.borderColor = UIColor(red: 0.90, green: 0.92, blue: 0.94, alpha: 1.0).cgColor
         
         signinButton.layer.cornerRadius = 12.0
-       
+        
+        error.isHidden = true
     }
     
     func hideKeyboardWhenTappedAround() {
@@ -53,6 +59,7 @@ class SingInViewController: UIViewController {
     // при работе с инпутом
     @IBAction func textFieldEditingDidBegin(_ sender: TexFieldWithPadding) {
         sender.layer.borderColor = UIColor(red: 0.59, green: 0.33, blue: 0.94, alpha: 1.0).cgColor
+     
     }
     
     // когда убрали наведение с инпута
@@ -71,6 +78,14 @@ class SingInViewController: UIViewController {
     }
     
     
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
+    
     @IBAction func singin(_ sender: Any) {
         let email = emailTextField.text!
         let password = passwordTextField.text!
@@ -78,6 +93,17 @@ class SingInViewController: UIViewController {
         // не давать нажать на кнопку, пока не заполненны поля
         if email.isEmpty || password.isEmpty {
             return
+        }
+        
+        // неверный формат почты
+        if !isValidEmail(email) {
+            error.isHidden = false
+            passwordToErrorConstraint.priority = .defaultHigh
+            passwordToTextFieldConstraint.priority = .defaultLow
+        } else {
+            error.isHidden = true
+            passwordToErrorConstraint.priority = .defaultLow
+            passwordToTextFieldConstraint.priority = .defaultHigh
         }
         
         SVProgressHUD.show()
